@@ -1,0 +1,1 @@
+/home/ybouvron/Documents/final_project/code/autocrop/CMakeFiles/autocrop.dir
