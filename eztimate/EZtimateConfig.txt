@@ -1,0 +1,4 @@
+%YAML:1.0
+elapseTime: 1.5640050400000000e-01
+Image height: 836
+Image width: 580

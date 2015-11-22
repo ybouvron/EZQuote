@@ -1,0 +1,8 @@
+//useful links and references
+
+// edge detection and point detection
+// might be useful to detect the corners of the windows for image overlaying
+http://stackoverflow.com/questions/10533233/opencv-c-obj-c-advanced-square-detection
+
+//can be useful for overlaying
+http://docs.opencv.org/doc/tutorials/features2d/feature_homography/feature_homography.html
