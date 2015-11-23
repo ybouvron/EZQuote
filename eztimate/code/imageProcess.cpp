@@ -75,7 +75,7 @@ Mat ImageProcess::convertToGray(const Mat& img)	{
 void ImageProcess::showImage(Mat& img, String nameOfWindow)	{
 
 	namedWindow(nameOfWindow, WINDOW_NORMAL);
-	imshow(nameOfWindow, img);
+	//imshow(nameOfWindow, img);
 
 }
 
@@ -88,11 +88,11 @@ bool ImageProcess::isDetectionTrue(vector<Point2f> vertices)	{
 	//calculate line distances
 	line1 = pow(vertices[0].x - vertices[3].x, 2) + pow(vertices[0].y - vertices[3].y, 2);
 	line1 = sqrt(line1);
-	cout << "line1 : " << line1 << endl;
+	//	cout << "line1 : " << line1 << endl;
 
 	line2 = pow(vertices[1].x - vertices[2].x, 2) + pow(vertices[1].y - vertices[2].y, 2);
 	line2 = sqrt(line2);
-	cout << "line2 : " << line2 << endl;
+	//	cout << "line2 : " << line2 << endl;
 
 	float min, max;
 	
@@ -112,7 +112,7 @@ bool ImageProcess::isDetectionTrue(vector<Point2f> vertices)	{
 		detected = true;
 	} else detected = false;
 	
-	cout << "detected : " << detected << endl;
+	//	cout << "detected : " << detected << endl;
 	return detected;
 }
 
@@ -181,8 +181,8 @@ void ImageProcess::objectDetect(const Mat& source, const Mat& input_scene)	{
     if( dist > max_dist ) max_dist = dist;
   }
 
-  printf("-- Max dist : %f \n", max_dist );
-  printf("-- Min dist : %f \n", min_dist );
+  // printf("-- Max dist : %f \n", max_dist );
+  //  printf("-- Min dist : %f \n", min_dist );
 
   //-- Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
   std::vector< DMatch > good_matches;
@@ -253,10 +253,10 @@ void ImageProcess::objectDetect(const Mat& source, const Mat& input_scene)	{
 	if (estWidthOfObject > estHeightOfObject) paperOrientation = HORIZONTAL;
 	else paperOrientation = VERTICAL;
 
-	std::cout<< "Reference width: " << estWidthOfObject << endl;
-	std::cout<< "Reference height: " << estHeightOfObject << endl;
+	//	std::cout<< "Reference width: " << estWidthOfObject << endl;
+	//std::cout<< "Reference height: " << estHeightOfObject << endl;
 
-	printOrientation();
+	//	printOrientation();
   	
 
   //-- Show detected matches
@@ -345,12 +345,12 @@ void ImageProcess::setWindowDimensions(Mat& img)	{
 void ImageProcess::setWidthOfWindowInPixels(int w)	{
 	
 	widthOfWindowInPixels = w;
-	cout << "Window width in pixels " << widthOfWindowInPixels << endl;
+	//	cout << "Window width in pixels " << widthOfWindowInPixels << endl;
 }
 
 void ImageProcess::setHeightOfWindowInPixels(int h)	{
 	heightOfWindowInPixels = h;
-	cout << "Window height in pixels " << heightOfWindowInPixels << endl;
+	//	cout << "Window height in pixels " << heightOfWindowInPixels << endl;
 }
 
 void ImageProcess::setInputImage(Mat& image)	{

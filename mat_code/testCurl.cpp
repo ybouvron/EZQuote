@@ -139,7 +139,7 @@ void uploadImage(std::string readBuffer){
  }
 }
 
-Mat image_download(std::string *id)
+Mat image_download(std::string *id, std::string *frame)
 {
   CURL *curl;
   CURLcode res;
@@ -159,15 +159,17 @@ Mat image_download(std::string *id)
 
   // printf("%s\n\n", readBuffer.c_str());
 
-  // printf("Image retrieved.\n");
+  printf("Image retrieved.\n");
   Json::Value values;
   Json::Reader reader;
   reader.parse(readBuffer, values);
 
   Json::Value imageArray = values.get("userUploadedImage", "default value");
   Json::Value idNumber = values.get("id","default value");
+  Json::Value frameNumber = values.get("selectedFrame","default value");
   string out = imageArray.asString();
   *id = idNumber.asString();
+  *frame = frameNumber.asString();
   string decoded_string = base64_decode(out);
   vector<uchar> image(decoded_string.begin(), decoded_string.end());
 
@@ -176,7 +178,7 @@ Mat image_download(std::string *id)
   return img;
 }
 
-string encode(Mat img, std::string id)
+string encode(Mat img, std::string id, std::string length, std::string width)
 {
   vector<uchar> buff;//buffer for coding
   vector<int> param = vector<int>(2);
@@ -193,7 +195,10 @@ string encode(Mat img, std::string id)
   Json::FastWriter fastWritter;
 
   newValue["overLayedImage"] = encoded_string;
+  
   newValue["id"] = id;
+  newValue["length"] = length;
+  newValue["width"] = width;
 
   string serialized = fastWritter.write(newValue);
 
@@ -205,41 +210,57 @@ string encode(Mat img, std::string id)
 int main(int argc, char* argv[])
 {
   std::string id = "";
+  std::string frame ="";
+std::string height ="";
+std::string width ="";
+
   Mat image;
   //Mat uploadme;
+
+  if (argc == 1) {
+    cout << "You must specify either download or upload while running this command" << endl;
+  }
 
 
   for (int i = 0; i < argc; i++) {
     if (strcmp(argv[i],"download") == 0) {
       ofstream myfile;
-      myfile.open("id.txt");
+      myfile.open("images/id.txt");
 
-      image = image_download(&id);
+      image = image_download(&id, &frame);
 
       if (image.empty()){
 	printf("NO image to download.\n");
       } else {
-	imshow("Downloaded image", image);
-	cv::waitKey(0);
+	//	imshow("Downloaded image", image);
+	cv::waitKey(10);
       }
-    
-      myfile << id;
+
+      myfile << frame << endl;
+      myfile << id << endl;
       myfile.close();
-      imwrite( "../images/downloaded.jpg", image );
+      if ( ! imwrite( "images/downloaded.jpg", image ) ) {
+	cout << "image write failed\n";
+}
   
-    } else if (strcmp(argv[i],"upload") == 0){
+    } 
+
+    else if (strcmp(argv[i],"upload") == 0){
       ifstream myfile;
-      myfile.open("id.txt");
-
+      myfile.open("images/id.txt");
+      
+      getline(myfile,frame);
       getline(myfile,id);
+      getline(myfile,height);
+      getline(myfile,width);
+      
+      image=imread("images/newest.jpg");
 
-      image=imread("../images/last.jpg");
-
-      string serialized = encode(image, id);
+      string serialized = encode(image, id, height, width);
       uploadImage(serialized);
-      imwrite( "../images/last.jpg", image );
+      imwrite( "images/upload.jpg", image );
 
-      remove( "id.txt" );
+      remove( "images/id.txt" );
 
     } //else {
 

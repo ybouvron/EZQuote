@@ -63,8 +63,8 @@ void ImageOverlay::cornerBackground()
 	if( dist > max_dist ) max_dist = dist;
 	}
 
-	printf("-- Max dist : %f \n", max_dist );
-	printf("-- Min dist : %f \n", min_dist );
+	//printf("-- Max dist : %f \n", max_dist );
+	//printf("-- Min dist : %f \n", min_dist );
 
 	//-- Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
 	std::vector< DMatch > good_matches;
@@ -140,7 +140,7 @@ Mat ImageOverlay::combine_images()
 void ImageOverlay::showImage(Mat& img, String nameOfWindow)	{
 
 	namedWindow(nameOfWindow, WINDOW_NORMAL);
-	imshow(nameOfWindow, img);
+	//imshow(nameOfWindow, img);
 
 }
 
@@ -196,7 +196,7 @@ Mat ImageOverlay::overlayImage()
     }
   }
 	namedWindow("Output", WINDOW_NORMAL);
-	imshow("Output", output);
+	//imshow("Output", output);
 	//imwrite("Output.jpg", output);
 
 	return output;

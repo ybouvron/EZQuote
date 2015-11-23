@@ -1,0 +1,10 @@
+#! /bin/bash
+
+set -e
+echo "This is the EZQuote system without the autocrop implementation"
+
+./mat_code/test download 
+
+./eztimate/code/Source eztimate/code/ez_logo.jpg images/cropped.jpg images/downloaded.jpg images/newest.jpg 
+
+./mat_code/test upload

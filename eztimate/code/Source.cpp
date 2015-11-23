@@ -125,7 +125,7 @@ int main( int argc, char** argv )
 
   string image_overlay_filename = "";
 
-  if ( argc == 6) { 
+  if ( argc == 5) { 
 	Mat img_output = imread( argv[4], CV_LOAD_IMAGE_COLOR ); 
 	
 	//Brian, this will be the original image
@@ -135,7 +135,7 @@ int main( int argc, char** argv )
 	img_orig = imread(argv[3], CV_LOAD_IMAGE_COLOR);
 
 	//retrieve the image overlay filename	
-	image_overlay_filename = handler.loadImage(argv[5]);
+	//	image_overlay_filename = handler.loadImage(argv[5]);
 	//cout << "Hello " << image_overlay_filename << endl;
 	 
   }
@@ -148,9 +148,45 @@ int main( int argc, char** argv )
 
 
    //for image overlaying
-  Mat newWindow = imread(image_overlay_filename, -1);
-  
+  //This chooses which frame to use based on the input of the user in the id.txt file
+  //Mat newWindow = imread(image_overlay_filename, -1);
+  Mat newWindow ;
 
+  //string frame;
+  int frame;
+  int id;
+  ifstream myfile;
+  
+  myfile.open("images/id.txt");
+  myfile >> frame;  
+  myfile >> id;
+
+  if (frame == 1) {
+    newWindow = imread("eztimate/code/1overlay.png", -1);
+  }  
+
+  else if (frame == 2) {
+    newWindow =  imread("eztimate/code/2overlay.png", -1);
+  } 
+
+  else if (frame == 3) {
+    newWindow = imread("eztimate/code/3overlay.png", -1);    
+  } 
+
+  else if (frame == 4) {
+    newWindow = imread("eztimate/code/4overlay.png", -1);
+  } 
+
+  else if (frame == 5) {
+    newWindow = imread("eztimate/code/5overlay.png", -1);
+  } 
+ 
+
+  else {
+ newWindow = imread("eztimate/code/5overlay.png", -1);
+  }
+  
+  myfile.close();
 
   if( !img_object.data || !img_scene.data )
   { std::cout<< " --(!) Error reading images " << std::endl; return -1; }
@@ -158,9 +194,17 @@ int main( int argc, char** argv )
   //This is used for object detection
   detectReference.objectDetect(img_object, img_scene);
 
-  //Prints the output
+  //Prints the output and saves to file
   std::cout <<"Estimated Window width: " << (int) detectReference.getWidthOfWindowCm() << " cm" << endl;
   std::cout <<"Estimated Window height: " << (int) detectReference.getHeightOfWindowCm() << " cm" << endl;
+
+  ofstream myf;
+  myf.open("images/id.txt", std::fstream::app);
+  int height = detectReference.getHeightOfWindowCm();
+  myf<< height << endl;
+ int width = detectReference.getWidthOfWindowCm();
+  myf << width << endl;
+  myf.close();
 
 	/*sample for image overlaying */
 	/*
@@ -220,7 +264,7 @@ int main( int argc, char** argv )
 	//imwrite("new_output.jpg", final_image);
 
 
-  waitKey(0);
+	waitKey(5);
   return 0;
   }
 
