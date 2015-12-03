@@ -24,7 +24,7 @@ class ImageProcess
 
 
 public:
-	
+	ImageProcess(const Mat& in, Mat& out);
 	ImageProcess();
 	~ImageProcess();
 
