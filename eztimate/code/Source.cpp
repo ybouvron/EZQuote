@@ -90,12 +90,7 @@ description:
 #include "imageOverlay.cpp"
 #include "dataHandler.cpp"
 
-// Current Version 1.0
-
-int CURRENT_THRESH = 220;
-int MAX_THRESH = 250;	//255: white, 0 : black
-
-
+// Current Version 1.1
 
 using namespace cv;
 
@@ -128,10 +123,7 @@ int main( int argc, char** argv )
   if ( argc == 5) { 
 	Mat img_output = imread( argv[4], CV_LOAD_IMAGE_COLOR ); 
 	
-	//Brian, this will be the original image
-	//I put it in grayscaled, change it according to your implementation
-	//This will only work if the number of input images is 4
-	// look at the readme() function for info		
+			
 	img_orig = imread(argv[3], CV_LOAD_IMAGE_COLOR);
 
 	//retrieve the image overlay filename	
@@ -202,11 +194,13 @@ int main( int argc, char** argv )
   myf.open("images/id.txt", std::fstream::app);
   int height = detectReference.getHeightOfWindowCm();
   myf<< height << endl;
- int width = detectReference.getWidthOfWindowCm();
+ 
+  int width = detectReference.getWidthOfWindowCm();
+  
   myf << width << endl;
   myf.close();
 
-	/*sample for image overlaying */
+	/*sample for image overlaying <DO NOT REMOVE FOR FUTURE REFERENCE>*/
 	/*
 		cropped_window --> window to be detected (from grabcut team)
 		original_window --> original window, the image we want to paste the new window into
@@ -271,7 +265,7 @@ int main( int argc, char** argv )
   /** @function readme */
   void readme()
   { 	std::cout << "\n\n Usage for Object detection and image overlay:\n" 
-		  << "./Source <object-source.jpg> <window-with-object-source> <window-original-image> <output jpg> <overlay_image.json>"	 
+		  << "./Source <object-source.jpg> <window-with-object-source> <window-original-image> <output.jpg> <overlay_image.json>"	 
 		  << std::endl ;
 	std::cout << "all parameters should be in .jpg format except the final argument which should be in .json format" << std::endl; }
 

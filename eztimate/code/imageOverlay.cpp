@@ -31,7 +31,7 @@ void ImageOverlay::cornerForeground()
 
 void ImageOverlay::cornerBackground()
 {
-	//-- Step 1: Detect the keypoints using SURF Detector
+	//1. Detect the keypoints using SURF Detector
 	int minHessian = 400;
 
 	SurfFeatureDetector detector( minHessian );
@@ -41,7 +41,7 @@ void ImageOverlay::cornerBackground()
 	detector.detect( window_cropped, keypoints_object );
 	detector.detect( background, keypoints_scene );
 
-	//-- Step 2: Calculate descriptors (feature vectors)
+	//2. Calculate descriptors (feature vectors)
 	SurfDescriptorExtractor extractor;
 
 	Mat descriptors_object, descriptors_scene;
@@ -49,24 +49,21 @@ void ImageOverlay::cornerBackground()
 	extractor.compute( window_cropped, keypoints_object, descriptors_object );
 	extractor.compute( background, keypoints_scene, descriptors_scene );
 
-	//-- Step 3: Matching descriptor vectors using FLANN matcher
+	//3. Matching descriptor vectors using FLANN matcher
 	FlannBasedMatcher matcher;
 	std::vector< DMatch > matches;
 	matcher.match( descriptors_object, descriptors_scene, matches );
 
 	double max_dist = 0; double min_dist = 100;
 
-	//-- Quick calculation of max and min distances between keypoints
+	// Quick calculation of max and min distances between keypoints
 	for( int i = 0; i < descriptors_object.rows; i++ )
 	{ double dist = matches[i].distance;
 	if( dist < min_dist ) min_dist = dist;
 	if( dist > max_dist ) max_dist = dist;
 	}
 
-	//printf("-- Max dist : %f \n", max_dist );
-	//printf("-- Min dist : %f \n", min_dist );
-
-	//-- Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
+	// Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
 	std::vector< DMatch > good_matches;
 
 	for( int i = 0; i < descriptors_object.rows; i++ )
@@ -79,13 +76,13 @@ void ImageOverlay::cornerBackground()
 	       good_matches, img_matches, Scalar::all(-1), Scalar::all(-1),
 	       vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS );
 
-	//-- Localize the object
+	//Localize the object
 	std::vector<Point2f> obj;
 	std::vector<Point2f> scene;
 
 	for( int i = 0; i < good_matches.size(); i++ )
 	{
-	//-- Get the keypoints from the good matches
+	// Get the keypoints from the good matches
 	obj.push_back( keypoints_object[ good_matches[i].queryIdx ].pt );
 	scene.push_back( keypoints_scene[ good_matches[i].trainIdx ].pt );
 	}

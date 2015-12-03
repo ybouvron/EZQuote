@@ -7,11 +7,6 @@ extern "C" {
 	This class handles all the processing process
 	Preprocessing -> object detection -> dimensions calculation
 */
-//#define KERNEL_SIZE 3
-
-
-//const char* wndname = "Square Detection Demo";
-
 
 #include<iostream>
 #include<string>
@@ -29,28 +24,30 @@ class ImageProcess
 
 
 public:
-
-
-	ImageProcess(const Mat& in, Mat& out);
+	
 	ImageProcess();
 	~ImageProcess();
 
 	Mat convertToGray(const Mat& img); //convert the input image to grayscale; returns a cloned image
 	
-	
+	//show a Mat object in a window
 	void showImage(Mat& img, String nameOfWindow);
 
+	//detect our source object in the input_scene
+	//This also calculates the dimensions of the window
 	void objectDetect(const Mat& source, const Mat& input_scene);
 	
+	//set our overall window dimensions in pixel (taken from the cropped image)
 	void setWindowDimensions(Mat& img);
 
+	//prints whether Horizontal or Vertical orientation
 	void printOrientation();
 
+	//checks whether or not we actually detected the reference object (paper)
 	bool isDetectionTrue(vector<Point2f> vertices);
 	
-	
+	//not used, just to show some lables within rectangles
 	void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& contour);
-
 	
 	//returns a vector of detected corner points; raw corners
 	//used for imageOverlay
@@ -85,15 +82,15 @@ private:
 
 	//for checking if object is detected
 	bool isDetected;
-
+	
+	//For orientation
 	int HORIZONTAL;
 	int VERTICAL;
 
 	int paperOrientation;
 
 	Mat inputImage, outputImage;
-	bool paperDetected;
-
+	
 	int widthOfPaperInPixels;
 	int heightOfPaperInPixels;
 

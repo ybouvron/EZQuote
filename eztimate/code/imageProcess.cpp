@@ -16,39 +16,15 @@
 
 using namespace cv;
 
-int thresh = 220;
-int max_thresh = 250;	//255: white, 0 : black
-RNG rng(12345);
-
-Mat camera_mat, distort_coeff;
-Mat R, map1, map2, new_camera_mat;
-//GpuMat frame_gpu, gray_gpu, dst_gpu, facesBuf_gpu;
-
+//used for label creation
 int kernel_size = 3;
-bool onlyOnce = true;
-
-int thresh_slider = 0;
-const int slider_thresh_max = 229;
-
-int lowThreshold = 50;
-int const max_lowThreshold = 250;//100;
-int ratio = 3;
-int slider = 0;
-
-int area_slider = 1000;
-int area_slider_max = 64000;
-
-bool calibrate = false;
-volatile double factorX = 1, factorY = 1;
-int key = 0;
 
 ImageProcess::ImageProcess(const Mat& in, Mat& out)
 {
 	
 	inputImage = in;
 	outputImage = out;
-
-	paperDetected = false;
+	
 }
 
 ImageProcess::ImageProcess() : rawCornerPoints(4), rectangleCornerPoints(4)	{
@@ -62,6 +38,7 @@ ImageProcess::~ImageProcess()
 
 }
 
+//This is not used but might be handy in the future
 Mat ImageProcess::convertToGray(const Mat& img)	{
 	
 	Mat temp = img.clone();
@@ -71,7 +48,7 @@ Mat ImageProcess::convertToGray(const Mat& img)	{
 	return temp;
 }
 
-
+//Show a given Mat object
 void ImageProcess::showImage(Mat& img, String nameOfWindow)	{
 
 	namedWindow(nameOfWindow, WINDOW_NORMAL);
@@ -79,6 +56,7 @@ void ImageProcess::showImage(Mat& img, String nameOfWindow)	{
 
 }
 
+//checks whether we actually detected the reference paper
 bool ImageProcess::isDetectionTrue(vector<Point2f> vertices)	{
 
 	bool detected = false;
@@ -139,16 +117,16 @@ void ImageProcess::setLabel(cv::Mat& im, const std::string label, std::vector<cv
 //source is the object to detect, scene is the image that contains the reference object
 void ImageProcess::objectDetect(const Mat& source, const Mat& input_scene)	{
 	  
-  //-- Step 1: Detect the keypoints using SURF Detector
-  int minHessian = 400;
+  //1. Detect the keypoints using SURF (Speeded Up Robust Features) Detector
+  int minHessian = 400; //Hessian threshold 
 
-  SurfFeatureDetector detector( minHessian );
+  SurfFeatureDetector detector( minHessian ); //create our detector
 
-  std::vector<KeyPoint> keypoints_object, keypoints_scene;
+  std::vector<KeyPoint> keypoints_object, keypoints_scene; //create keypoints containers
 
-  Mat img_object = source;
+  Mat img_object = source; //our reference object
 
-  Mat img_scene = input_scene;
+  Mat img_scene = input_scene; //object with the reference object to detect (i.e. cropped window)
 
   //we set the overall width and height of window in pixels
   setWindowDimensions(img_scene);
@@ -159,32 +137,35 @@ void ImageProcess::objectDetect(const Mat& source, const Mat& input_scene)	{
   //saves the keypoints from our scene object (cropped window that has reference image)
   detector.detect( img_scene, keypoints_scene );
 
-  //-- Step 2: Calculate descriptors (feature vectors)
-  SurfDescriptorExtractor extractor;
+  //2. Calculate descriptors (feature vectors)
+  SurfDescriptorExtractor extractor; //need to extract our keypoints (features)
 
-  Mat descriptors_object, descriptors_scene;
+  Mat descriptors_object, descriptors_scene; //create our descriptors, these are vectors that describe
+						//our keypoints
 
+  //we compute to obtain the descriptors for both our object and scene
   extractor.compute( img_object, keypoints_object, descriptors_object );
   extractor.compute( img_scene, keypoints_scene, descriptors_scene );
 
-  //-- Step 3: Matching descriptor vectors using FLANN matcher
-  FlannBasedMatcher matcher;
-  std::vector< DMatch > matches;
-  matcher.match( descriptors_object, descriptors_scene, matches );
+  //3. Match our descriptor vectors using FLANN matcher (Fast Library for Approximate Nearest Neighbor)
+  FlannBasedMatcher matcher; //create our matcher
+  std::vector< DMatch > matches; //create container for our matches
+  matcher.match( descriptors_object, descriptors_scene, matches ); //match our descriptors within the two Mat objects
 
-  double max_dist = 0; double min_dist = 100;
+  double max_dist = 0; double min_dist = 100; //set our default max and min distances between keypoints
 
-  //-- Quick calculation of max and min distances between keypoints
+  //Calculate max and min distances between keypoints
   for( int i = 0; i < descriptors_object.rows; i++ )
   { double dist = matches[i].distance;
     if( dist < min_dist ) min_dist = dist;
     if( dist > max_dist ) max_dist = dist;
   }
 
+  //print to check if we get decent max and min values
   printf("-- Max dist : %f \n", max_dist );
   printf("-- Min dist : %f \n", min_dist );
 
-  //-- Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
+  //Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
   std::vector< DMatch > good_matches;
 
   for( int i = 0; i < descriptors_object.rows; i++ )
@@ -192,25 +173,27 @@ void ImageProcess::objectDetect(const Mat& source, const Mat& input_scene)	{
      { good_matches.push_back( matches[i]); }
   }
 
+  //This is to show the matching between two images
   Mat img_matches;
   drawMatches( img_object, keypoints_object, img_scene, keypoints_scene,
                good_matches, img_matches, Scalar::all(-1), Scalar::all(-1),
                vector<char>(), DrawMatchesFlags::NOT_DRAW_SINGLE_POINTS );
 
-  //-- Localize the object
+  //Localize the object
   std::vector<Point2f> obj;
   std::vector<Point2f> scene;
 
   for( int i = 0; i < good_matches.size(); i++ )
   {
-    //-- Get the keypoints from the good matches
+    //Get the keypoints from the good matches
     obj.push_back( keypoints_object[ good_matches[i].queryIdx ].pt );
     scene.push_back( keypoints_scene[ good_matches[i].trainIdx ].pt );
   }
 
+  //Use homography to find perspective transformation
   Mat H = findHomography( obj, scene, CV_RANSAC );
 
-  //-- Get the corners from the image_1 ( the object to be "detected" )
+  //Get the corners from the object image ( the object to be "detected" )
   std::vector<Point2f> obj_corners(4);
   obj_corners[0] = cvPoint(0,0); obj_corners[1] = cvPoint( img_object.cols, 0 );
   obj_corners[2] = cvPoint( img_object.cols, img_object.rows ); obj_corners[3] = cvPoint( 0, img_object.rows );
@@ -221,7 +204,7 @@ void ImageProcess::objectDetect(const Mat& source, const Mat& input_scene)	{
 
 	setOutputImage(img_matches);
 
-  std::vector<Point2f> final_corners(4);
+  std::vector<Point2f> final_corners(4); //corner points container
 	
 	//save final point coordinates
 	rawCornerPoints[0] = scene_corners[0] + Point2f( img_object.cols, 0);
@@ -236,12 +219,13 @@ void ImageProcess::objectDetect(const Mat& source, const Mat& input_scene)	{
 	
 
 	//void rectangle(Mat& img, Point pt1, Point pt2, const Scalar& color, int thickness=1, int lineType=8, int shift=0)
-	cv:rectangle(img_matches, rawCornerPoints[0], rawCornerPoints[2], Scalar(255,0,0),3,8,0);
+	cv:rectangle(img_matches, rawCornerPoints[0], rawCornerPoints[2], Scalar(255,0,0),3,8,0); //draw rectangle
 	
 	//width and height of the paper in pixels
 	estWidthOfObject = objectRectangle.width;
 	estHeightOfObject = objectRectangle.height;
-
+	
+	//This avoids false positive detection
 	isDetected = isDetectionTrue(rawCornerPoints);	
 	
 	//reference detection only
@@ -258,13 +242,11 @@ void ImageProcess::objectDetect(const Mat& source, const Mat& input_scene)	{
 
 	printOrientation();
   	
-
-  //-- Show detected matches
-  imshow( "Good Matches & Object detection", img_matches );
+  	//Show detected matches, not needed for the overall system	
 	showImage(img_matches, "Good Matches & Object detection");
 
 	
-}// end objectDetect2()
+}// end objectDetect()
 
 void ImageProcess::printOrientation()	{
 	switch (paperOrientation)	{
@@ -353,13 +335,14 @@ void ImageProcess::setHeightOfWindowInPixels(int h)	{
 	cout << "Window height in pixels " << heightOfWindowInPixels << endl;
 }
 
+
 void ImageProcess::setInputImage(Mat& image)	{
 	inputImage = image;
 }
 
 void ImageProcess::setOutputImage(Mat& image)	{
 	image.copyTo(outputImage);	
-	//outputImage = image;
+	
 }
 
 
