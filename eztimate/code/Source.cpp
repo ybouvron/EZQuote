@@ -183,7 +183,7 @@ int main( int argc, char** argv )
  
 
   else {
- newWindow = imread("eztimate/code/5overlay.png", -1);
+ newWindow = imread("eztimate/code/1overlay.png", -1);
   }
   
   myfile.close();
@@ -264,7 +264,7 @@ int main( int argc, char** argv )
 	//imwrite("new_output.jpg", final_image);
 
 
-	waitKey(5);
+	waitKey(0);
   return 0;
   }
 

@@ -1,0 +1,7 @@
+#### This explains how to the image will be processed####
+
+
+To run this, you will need to use make to compile create an executable file.
+In the CMakeLists.txt file, the list of libraries are defined that is needed for OpenCV and C++ to run. 
+This case, the excutable file is called "Source". Change this to whatever you would like in the CMakeLists.txt file.
+

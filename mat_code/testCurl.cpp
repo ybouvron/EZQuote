@@ -217,7 +217,7 @@ std::string width ="";
   Mat image;
   //Mat uploadme;
 
-  if (argc == 1) {
+  if (argc == 1 | argc > 2) {
     cout << "You must specify either download or upload while running this command" << endl;
   }
 
@@ -231,9 +231,6 @@ std::string width ="";
 
       if (image.empty()){
 	printf("NO image to download.\n");
-      } else {
-	//	imshow("Downloaded image", image);
-	cv::waitKey(10);
       }
 
       myfile << frame << endl;
@@ -253,7 +250,7 @@ std::string width ="";
       getline(myfile,id);
       getline(myfile,height);
       getline(myfile,width);
-      
+     cout << "ID is " << id << endl; 
       image=imread("images/newest.jpg");
 
       string serialized = encode(image, id, height, width);

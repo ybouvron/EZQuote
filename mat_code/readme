@@ -1,0 +1,16 @@
+#### This explains how to download and uplod the image ####
+
+The testCurl.cpp file is what will download and upload the image.
+
+To run this, you will need to use make to compile create an executable file.
+In the CMakeLists.txt file, the list of libraries are defined that is needed for OpenCV and C++ to run. 
+This case, the excutable file is called "test". Change this to whatever you would like in the CMakeLists.txt file.
+
+In order to download an image, you will need run as follows:
+./test download
+If you get an OpenCV error about size or is says "No image to download" then that means nothing is in queue on the server.
+
+To upload the image, you will need run as follows:
+./test upload
+Depending on the size of the image, it may take up to 20 seconds for the image to upload to the server.
+Once the image is uploaded, you will get an output image saying so.

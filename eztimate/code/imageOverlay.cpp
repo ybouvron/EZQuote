@@ -140,7 +140,7 @@ Mat ImageOverlay::combine_images()
 void ImageOverlay::showImage(Mat& img, String nameOfWindow)	{
 
 	namedWindow(nameOfWindow, WINDOW_NORMAL);
-	//imshow(nameOfWindow, img);
+	imshow(nameOfWindow, img);
 
 }
 
@@ -151,7 +151,7 @@ Mat ImageOverlay::overlayImage()
 
 
 //	namedWindow("ForeWarped", WINDOW_NORMAL);
-//	imshow("ForeWarped", foreWarped);
+	imshow("ForeWarped", foreWarped);
 
 
   // start at the row indicated by location, or at row 0 if location.y is negative.
@@ -196,7 +196,7 @@ Mat ImageOverlay::overlayImage()
     }
   }
 	namedWindow("Output", WINDOW_NORMAL);
-	//imshow("Output", output);
+	imshow("Output", output);
 	//imwrite("Output.jpg", output);
 
 	return output;
