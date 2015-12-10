@@ -47,44 +47,44 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/ezquote/eztimate/code
+CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/ezquote/mat_code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote/eztimate/code
+CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote
 
 #=============================================================================
-# Target rules for target CMakeFiles/Source.dir
+# Target rules for target CMakeFiles/test.dir
 
 # All Build rule for target.
-CMakeFiles/Source.dir/all:
-	$(MAKE) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/depend
-	$(MAKE) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/ezquote/eztimate/code/CMakeFiles  1
-	@echo "Built target Source"
-.PHONY : CMakeFiles/Source.dir/all
+CMakeFiles/test.dir/all:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/ezquote/CMakeFiles  1
+	@echo "Built target test"
+.PHONY : CMakeFiles/test.dir/all
 
 # Include target in all.
-all: CMakeFiles/Source.dir/all
+all: CMakeFiles/test.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Source.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/eztimate/code/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Source.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/eztimate/code/CMakeFiles 0
-.PHONY : CMakeFiles/Source.dir/rule
+CMakeFiles/test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/CMakeFiles 0
+.PHONY : CMakeFiles/test.dir/rule
 
 # Convenience name for target.
-Source: CMakeFiles/Source.dir/rule
-.PHONY : Source
+test: CMakeFiles/test.dir/rule
+.PHONY : test
 
 # clean rule for target.
-CMakeFiles/Source.dir/clean:
-	$(MAKE) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/clean
-.PHONY : CMakeFiles/Source.dir/clean
+CMakeFiles/test.dir/clean:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
+.PHONY : CMakeFiles/test.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/Source.dir/clean
+clean: CMakeFiles/test.dir/clean
 .PHONY : clean
 
 #=============================================================================

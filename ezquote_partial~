@@ -1,7 +1,0 @@
-#! /bin/bash
-
-echo "This is the EZQuote system without the autocrop implementation"
-date > logs/mat_output.log &&
-./mat_code/test download > logs/mat_output.log &&
-echo "Image was downloaded"
-./Source ez_logo.jpg ../../images/cropped.jpg ../../images/downloaded.jpg ../../images/newest.jpg image_name.json

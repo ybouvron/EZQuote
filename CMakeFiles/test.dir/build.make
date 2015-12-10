@@ -38,7 +38,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/ezquote/mat_code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote/mat_code
+CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote
 
 # Include any dependencies generated for this target.
 include CMakeFiles/test.dir/depend.make
@@ -50,8 +50,8 @@ include CMakeFiles/test.dir/progress.make
 include CMakeFiles/test.dir/flags.make
 
 CMakeFiles/test.dir/testCurl.cpp.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/testCurl.cpp.o: testCurl.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/ezquote/mat_code/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/test.dir/testCurl.cpp.o: mat_code/testCurl.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/ezquote/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/test.dir/testCurl.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/test.dir/testCurl.cpp.o -c /home/ybouvron/Documents/final_project/ezquote/mat_code/testCurl.cpp
 
@@ -136,6 +136,6 @@ CMakeFiles/test.dir/clean:
 .PHONY : CMakeFiles/test.dir/clean
 
 CMakeFiles/test.dir/depend:
-	cd /home/ybouvron/Documents/final_project/ezquote/mat_code && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ybouvron/Documents/final_project/ezquote/mat_code /home/ybouvron/Documents/final_project/ezquote/mat_code /home/ybouvron/Documents/final_project/ezquote/mat_code /home/ybouvron/Documents/final_project/ezquote/mat_code /home/ybouvron/Documents/final_project/ezquote/mat_code/CMakeFiles/test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ybouvron/Documents/final_project/ezquote && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ybouvron/Documents/final_project/ezquote/mat_code /home/ybouvron/Documents/final_project/ezquote/mat_code /home/ybouvron/Documents/final_project/ezquote /home/ybouvron/Documents/final_project/ezquote /home/ybouvron/Documents/final_project/ezquote/CMakeFiles/test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/test.dir/depend
 

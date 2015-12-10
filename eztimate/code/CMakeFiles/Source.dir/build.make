@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/code/eztimate/code
+CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/ezquote/eztimate/code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/code/eztimate/code
+CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote/eztimate/code
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Source.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/Source.dir/flags.make
 
 CMakeFiles/Source.dir/Source.cpp.o: CMakeFiles/Source.dir/flags.make
 CMakeFiles/Source.dir/Source.cpp.o: Source.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/code/eztimate/code/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/ezquote/eztimate/code/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Source.dir/Source.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Source.dir/Source.cpp.o -c /home/ybouvron/Documents/final_project/code/eztimate/code/Source.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Source.dir/Source.cpp.o -c /home/ybouvron/Documents/final_project/ezquote/eztimate/code/Source.cpp
 
 CMakeFiles/Source.dir/Source.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Source.dir/Source.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ybouvron/Documents/final_project/code/eztimate/code/Source.cpp > CMakeFiles/Source.dir/Source.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ybouvron/Documents/final_project/ezquote/eztimate/code/Source.cpp > CMakeFiles/Source.dir/Source.cpp.i
 
 CMakeFiles/Source.dir/Source.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Source.dir/Source.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ybouvron/Documents/final_project/code/eztimate/code/Source.cpp -o CMakeFiles/Source.dir/Source.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ybouvron/Documents/final_project/ezquote/eztimate/code/Source.cpp -o CMakeFiles/Source.dir/Source.cpp.s
 
 CMakeFiles/Source.dir/Source.cpp.o.requires:
 .PHONY : CMakeFiles/Source.dir/Source.cpp.o.requires
@@ -136,6 +136,6 @@ CMakeFiles/Source.dir/clean:
 .PHONY : CMakeFiles/Source.dir/clean
 
 CMakeFiles/Source.dir/depend:
-	cd /home/ybouvron/Documents/final_project/code/eztimate/code && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ybouvron/Documents/final_project/code/eztimate/code /home/ybouvron/Documents/final_project/code/eztimate/code /home/ybouvron/Documents/final_project/code/eztimate/code /home/ybouvron/Documents/final_project/code/eztimate/code /home/ybouvron/Documents/final_project/code/eztimate/code/CMakeFiles/Source.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ybouvron/Documents/final_project/ezquote/eztimate/code && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ybouvron/Documents/final_project/ezquote/eztimate/code /home/ybouvron/Documents/final_project/ezquote/eztimate/code /home/ybouvron/Documents/final_project/ezquote/eztimate/code /home/ybouvron/Documents/final_project/ezquote/eztimate/code /home/ybouvron/Documents/final_project/ezquote/eztimate/code/CMakeFiles/Source.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Source.dir/depend
 

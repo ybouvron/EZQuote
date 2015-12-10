@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/code/autocrop
+CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/ezquote/autocrop
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/code/autocrop
+CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote/autocrop
 
 #=============================================================================
 # Target rules for target CMakeFiles/autocrop.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/code/autocrop
 CMakeFiles/autocrop.dir/all:
 	$(MAKE) -f CMakeFiles/autocrop.dir/build.make CMakeFiles/autocrop.dir/depend
 	$(MAKE) -f CMakeFiles/autocrop.dir/build.make CMakeFiles/autocrop.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/code/autocrop/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/ezquote/autocrop/CMakeFiles  1
 	@echo "Built target autocrop"
 .PHONY : CMakeFiles/autocrop.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/autocrop.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/autocrop.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/code/autocrop/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/autocrop/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/autocrop.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/code/autocrop/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/autocrop/CMakeFiles 0
 .PHONY : CMakeFiles/autocrop.dir/rule
 
 # Convenience name for target.

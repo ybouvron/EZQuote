@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/ezquote/eztimate/code
+CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/ezquote/mat_code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote/eztimate/code
+CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/eztimate/code/CMakeFiles /home/ybouvron/Documents/final_project/ezquote/eztimate/code/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/CMakeFiles /home/ybouvron/Documents/final_project/ezquote/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/eztimate/code/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ybouvron/Documents/final_project/ezquote/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -99,41 +99,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Source
+# Target rules for targets named test
 
 # Build rule for target.
-Source: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Source
-.PHONY : Source
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-Source/fast:
-	$(MAKE) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/build
-.PHONY : Source/fast
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
-Source.o: Source.cpp.o
-.PHONY : Source.o
+testCurl.o: testCurl.cpp.o
+.PHONY : testCurl.o
 
 # target to build an object file
-Source.cpp.o:
-	$(MAKE) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/Source.cpp.o
-.PHONY : Source.cpp.o
+testCurl.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/testCurl.cpp.o
+.PHONY : testCurl.cpp.o
 
-Source.i: Source.cpp.i
-.PHONY : Source.i
+testCurl.i: testCurl.cpp.i
+.PHONY : testCurl.i
 
 # target to preprocess a source file
-Source.cpp.i:
-	$(MAKE) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/Source.cpp.i
-.PHONY : Source.cpp.i
+testCurl.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/testCurl.cpp.i
+.PHONY : testCurl.cpp.i
 
-Source.s: Source.cpp.s
-.PHONY : Source.s
+testCurl.s: testCurl.cpp.s
+.PHONY : testCurl.s
 
 # target to generate assembly for a file
-Source.cpp.s:
-	$(MAKE) -f CMakeFiles/Source.dir/build.make CMakeFiles/Source.dir/Source.cpp.s
-.PHONY : Source.cpp.s
+testCurl.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/testCurl.cpp.s
+.PHONY : testCurl.cpp.s
 
 # Help Target
 help:
@@ -141,12 +141,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... Source"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Source.o"
-	@echo "... Source.i"
-	@echo "... Source.s"
+	@echo "... test"
+	@echo "... testCurl.o"
+	@echo "... testCurl.i"
+	@echo "... testCurl.s"
 .PHONY : help
 
 

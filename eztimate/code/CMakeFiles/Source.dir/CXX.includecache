@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ybouvron/Documents/final_project/code/eztimate/code/Source.cpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/Source.cpp
 iostream
 -
 math.h
@@ -22,33 +22,33 @@ opencv2/opencv.hpp
 opencv2/highgui/highgui.hpp
 -
 opencv2/objdetect/objdetect.hpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/opencv2/objdetect/objdetect.hpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/opencv2/objdetect/objdetect.hpp
 opencv2/core/core.hpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/opencv2/core/core.hpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/opencv2/core/core.hpp
 opencv2/features2d/features2d.hpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/opencv2/features2d/features2d.hpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/opencv2/features2d/features2d.hpp
 opencv2/calib3d/calib3d.hpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/opencv2/calib3d/calib3d.hpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/opencv2/calib3d/calib3d.hpp
 opencv2/nonfree/nonfree.hpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/opencv2/nonfree/nonfree.hpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/opencv2/nonfree/nonfree.hpp
 opencv2/imgproc/imgproc.hpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/opencv2/imgproc/imgproc.hpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/opencv2/imgproc/imgproc.hpp
 imageProcess.h
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageProcess.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageProcess.h
 imageOverlay.h
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageOverlay.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageOverlay.h
 dataHandler.h
-/home/ybouvron/Documents/final_project/code/eztimate/code/dataHandler.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/dataHandler.h
 imageProcess.cpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageProcess.cpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageProcess.cpp
 imageOverlay.cpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageOverlay.cpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageOverlay.cpp
 dataHandler.cpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/dataHandler.cpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/dataHandler.cpp
 
-/home/ybouvron/Documents/final_project/code/eztimate/code/dataHandler.cpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/dataHandler.cpp
 dataHandler.h
-/home/ybouvron/Documents/final_project/code/eztimate/code/dataHandler.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/dataHandler.h
 iostream
 -
 fstream
@@ -56,7 +56,7 @@ fstream
 opencv2/opencv.hpp
 -
 
-/home/ybouvron/Documents/final_project/code/eztimate/code/dataHandler.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/dataHandler.h
 iostream
 -
 string
@@ -66,15 +66,15 @@ fstream
 opencv2/opencv.hpp
 -
 
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageOverlay.cpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageOverlay.cpp
 imageOverlay.h
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageOverlay.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageOverlay.h
 iostream
 -
 opencv2/opencv.hpp
 -
 
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageOverlay.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageOverlay.h
 iostream
 -
 string
@@ -82,9 +82,9 @@ string
 opencv2/opencv.hpp
 -
 
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageProcess.cpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageProcess.cpp
 imageProcess.h
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageProcess.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageProcess.h
 iostream
 -
 stdio.h
@@ -98,11 +98,11 @@ math.h
 opencv2/opencv.hpp
 -
 opencv2/highgui/highgui.hpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/opencv2/highgui/highgui.hpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/opencv2/highgui/highgui.hpp
 opencv2/imgproc/imgproc.hpp
-/home/ybouvron/Documents/final_project/code/eztimate/code/opencv2/imgproc/imgproc.hpp
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/opencv2/imgproc/imgproc.hpp
 
-/home/ybouvron/Documents/final_project/code/eztimate/code/imageProcess.h
+/home/ybouvron/Documents/final_project/ezquote/eztimate/code/imageProcess.h
 iostream
 -
 string

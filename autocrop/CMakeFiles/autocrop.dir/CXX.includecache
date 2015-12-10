@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/ybouvron/Documents/final_project/code/autocrop/autocrop.cpp
+/home/ybouvron/Documents/final_project/ezquote/autocrop/autocrop.cpp
 opencv2/highgui/highgui.hpp
 -
 opencv2/imgproc/imgproc.hpp
 -
 opencv2/core/core.hpp
-/home/ybouvron/Documents/final_project/code/autocrop/opencv2/core/core.hpp
+/home/ybouvron/Documents/final_project/ezquote/autocrop/opencv2/core/core.hpp
 iostream
 -
 stdio.h

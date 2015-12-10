@@ -1,0 +1,27 @@
+#! /bin/bash
+
+echo Deleting old make files
+
+rm autocrop/CMakeCache.txt
+rm -r autocrop/CMakeFiles/
+rm autocrop/Makefile
+
+rm eztimate/code/CMakeCache.txt
+rm -r eztimate/code/CMakeFiles/
+rm eztimate/code/Makefile
+
+rm mat_code/CMakeCache.txt
+rm -r mat_code/CMakeFiles/
+rm mat_code/Makefile
+
+set -e
+
+echo Compiling subsystems...
+cmake autocrop/
+make -C autocrop/
+
+cmake eztimate/code/
+make -C eztimate/code/
+
+cmake mat_code/
+make -C mat_code/

@@ -125,7 +125,7 @@ int main( int argc, char** argv )
 	
 			
 	img_orig = imread(argv[3], CV_LOAD_IMAGE_COLOR);
-
+	imshow("Original Picture", img_orig);
 	//retrieve the image overlay filename	
 	//	image_overlay_filename = handler.loadImage(argv[5]);
 	//cout << "Hello " << image_overlay_filename << endl;

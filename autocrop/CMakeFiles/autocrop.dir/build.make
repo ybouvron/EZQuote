@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/code/autocrop
+CMAKE_SOURCE_DIR = /home/ybouvron/Documents/final_project/ezquote/autocrop
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/code/autocrop
+CMAKE_BINARY_DIR = /home/ybouvron/Documents/final_project/ezquote/autocrop
 
 # Include any dependencies generated for this target.
 include CMakeFiles/autocrop.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/autocrop.dir/flags.make
 
 CMakeFiles/autocrop.dir/autocrop.o: CMakeFiles/autocrop.dir/flags.make
 CMakeFiles/autocrop.dir/autocrop.o: autocrop.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/code/autocrop/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ybouvron/Documents/final_project/ezquote/autocrop/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/autocrop.dir/autocrop.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/autocrop.dir/autocrop.o -c /home/ybouvron/Documents/final_project/code/autocrop/autocrop.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/autocrop.dir/autocrop.o -c /home/ybouvron/Documents/final_project/ezquote/autocrop/autocrop.cpp
 
 CMakeFiles/autocrop.dir/autocrop.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/autocrop.dir/autocrop.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ybouvron/Documents/final_project/code/autocrop/autocrop.cpp > CMakeFiles/autocrop.dir/autocrop.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ybouvron/Documents/final_project/ezquote/autocrop/autocrop.cpp > CMakeFiles/autocrop.dir/autocrop.i
 
 CMakeFiles/autocrop.dir/autocrop.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/autocrop.dir/autocrop.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ybouvron/Documents/final_project/code/autocrop/autocrop.cpp -o CMakeFiles/autocrop.dir/autocrop.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ybouvron/Documents/final_project/ezquote/autocrop/autocrop.cpp -o CMakeFiles/autocrop.dir/autocrop.s
 
 CMakeFiles/autocrop.dir/autocrop.o.requires:
 .PHONY : CMakeFiles/autocrop.dir/autocrop.o.requires
@@ -136,6 +136,6 @@ CMakeFiles/autocrop.dir/clean:
 .PHONY : CMakeFiles/autocrop.dir/clean
 
 CMakeFiles/autocrop.dir/depend:
-	cd /home/ybouvron/Documents/final_project/code/autocrop && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ybouvron/Documents/final_project/code/autocrop /home/ybouvron/Documents/final_project/code/autocrop /home/ybouvron/Documents/final_project/code/autocrop /home/ybouvron/Documents/final_project/code/autocrop /home/ybouvron/Documents/final_project/code/autocrop/CMakeFiles/autocrop.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ybouvron/Documents/final_project/ezquote/autocrop && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ybouvron/Documents/final_project/ezquote/autocrop /home/ybouvron/Documents/final_project/ezquote/autocrop /home/ybouvron/Documents/final_project/ezquote/autocrop /home/ybouvron/Documents/final_project/ezquote/autocrop /home/ybouvron/Documents/final_project/ezquote/autocrop/CMakeFiles/autocrop.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/autocrop.dir/depend
 

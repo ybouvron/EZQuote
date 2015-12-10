@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ybouvron/Documents/final_project/code/autocrop/autocrop.cpp" "/home/ybouvron/Documents/final_project/code/autocrop/CMakeFiles/autocrop.dir/autocrop.o"
+  "/home/ybouvron/Documents/final_project/ezquote/autocrop/autocrop.cpp" "/home/ybouvron/Documents/final_project/ezquote/autocrop/CMakeFiles/autocrop.dir/autocrop.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

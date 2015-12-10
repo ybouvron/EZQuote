@@ -1,0 +1,11 @@
+#! /bin/bash
+
+set -e
+#for run in {1..10}
+#do
+# echo "This is the EZQuote system without the autocrop implementation"
+#./mat_code/test download 
+#./autocrop/autocrop
+./eztimate/code/Source eztimate/code/ez_logo.jpg images/cropped.jpg images/downloaded.jpg images/newest.jpg 
+#./mat_code/test upload
+#done
